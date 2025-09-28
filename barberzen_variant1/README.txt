@@ -6,7 +6,3 @@ Fișiere incluse:
 - favicon.png (iconiță tab browser)
 - barberzen_poster_servicii.png (poster servicii)
 
-Cum publici:
-1. Mergi la https://app.netlify.com/drop
-2. Trage fișierele dezarhivate
-3. Primești link public (ex: https://barberzen.netlify.app)
