@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BarberZen — Programări & Prețuri</title>
+  <link rel="icon" type="image/png" href="lk.jpg" />
+  <style>
+    body {background:#0b0b0b;color:#fff;font-family:sans-serif;margin:0;padding:0;}
+    a {color:#fff;}
+    header {padding:40px 20px;text-align:center;}
+    header img {max-width:200px;margin-bottom:20px;}
+    h1 {margin:10px 0;font-size:36px;}
+    p.sub {color:#bbb;}
+    .cta {margin-top:20px;}
+    .cta a {display:inline-block;margin:8px;padding:12px 20px;border:1px solid #333;
+            border-radius:30px;text-decoration:none;background:#111;font-weight:bold;}
+    section {padding:40px 20px;}
+    .grid {display:grid;grid-gap:20px;}
+    @media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr);}}
+    .card {background:#111;border:1px solid #222;border-radius:10px;padding:20px;}
+    .card .price {font-size:22px;font-weight:bold;margin-bottom:10px;}
+    footer {text-align:center;color:#888;padding:30px 10px;}
+  </style>
+</head>
+<body>
+  <header>
+    <header style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px;">
+  
+  <!-- Stânga: Social media -->
+  <div style="flex:1;text-align:left;">
+    <h3 style="margin:0 0 10px;">Urmărește BarberZen</h3>
+    <a href="https://www.facebook.com/share/19dk3HcFDM/?mibextid=wwXIfr" target="_blank"
+       style="display:inline-block;margin:5px;padding:8px 14px;background:#1877f2;color:#fff;
+              border-radius:6px;text-decoration:none;font-size:14px;">👍 Facebook</a><br>
+    <a href="https://www.tiktok.com/@barberzen?_t=ZN-900AVIXGgDu&_r=1" target="_blank"
+       style="display:inline-block;margin:5px;padding:8px 14px;background:#000;color:#fff;
+              border-radius:6px;text-decoration:none;font-size:14px;">🎵 TikTok</a>
+  </div>
+  
+  <!-- Mijloc: Logo + titlu -->
+  <div style="flex:1;text-align:center;">
+    <img src="logo_banner.png" alt="Logo BarberZen" style="max-width:400px;display:block;margin:0 auto 10px;">
+    <h1 style="margin:0;">Programări BarberZen</h1>
+    <p class="sub" style="margin:5px 0;">Basic 50 lei • Premium 75 lei • Ultimate 100 lei</p>
+    <div class="cta" style="margin-top:10px;">
+      <a class="btn" href="https://calendar.app.google/fvLYcg94AJk9TNjA7" target="_blank">✅ Rezervă acum</a>
+      <a class="btn" href="https://wa.me/40728510009" target="_blank">💬 WhatsApp</a>
+      <a class="btn" href="mailto:BarberZen.oficial@gmail.com">📧 Email</a>
+    </div>
+  </div>
+  
+  <!-- Dreapta: Donații -->
+  <div style="flex:1;text-align:right;">
+    <h3 style="margin:0 0 10px;">Susține BarberZen 🙌</h3>
+    <img src="revv.jpg" alt="QR code donații" 
+         style="max-width:120px; border:3px solid #222; border-radius:8px; display:block; margin-left:auto;">
+    <p style="color:#ccc;font-size:12px;margin-top:5px;">Scanează pentru Revolut</p>
+  </div>
+
+</header>
+
+  </header>
+  <main>
+    <section>
+      <h2>Lista de servicii</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="price">Basic — 50 lei</div>
+          <ul>
+            <li>✂️ Tuns clasic</li>
+            <li>💨 Styling rapid</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="price">Premium — 75 lei</div>
+          <ul>
+            <li>✂️ Tuns personalizat</li>
+            <li>🧴 Spălat profesional</li>
+            <li>💆 Masaj capilar relaxant</li>
+            <li>💨 Styling & aranjat final</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="price">Ultimate — 100 lei</div>
+          <ul>
+            <li>✂️ Tuns personalizat</li>
+            <li>🧴 Spălat profesional</li>
+            <li>💆 Masaj capilar relaxant</li>
+            <li>💨 Styling & aranjat final</li>
+            <li>🧔 Barbă inclusă</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Contact & locație</h2>
+      <p>
+        📧 BarberZen.oficial@gmail.com<br/>
+        📞 0728 510 009<br/>
+        <a href="https://www.facebook.com/share/19dk3HcFDM/?mibextid=wwXIfr" target="_blank">🔗 Facebook</a><br/>
+        <a href="https://www.tiktok.com/@barberzen?_t=ZN-900AVIXGgDu&_r=1" target="_blank"
+              border-radius:6px;text-decoration:none;font-size:14px;">🎵 TikTok</a><br/>
+        <a href="https://maps.app.goo.gl/CHY3ZP2wNWtMAAyr8?g_st=ipc" target="_blank">📍 Strada Silvia nr. 9, București</a>
+      </p>
+      <iframe src="https://www.google.com/maps?q=Strada%20Silvia%209%2C%20Bucure%C8%99ti&output=embed"
+              style="width:100%;height:300px;border:0;border-radius:10px;" loading="lazy"></iframe>
+    </section>
+    
+
+  </main><footer style="background:#111; color:#aaa; text-align:center; padding:20px; margin-top:40px; font-size:14px;">
+  <p>📞 Telefon: 0728 510 009 | 📧 Email: BarberZen.oficial@gmail.com</p>
+  <p>© BarberZen București — RO 00000000</p>
+  <p>
+    <a href="#" style="color:#aaa; text-decoration:underline;">Politica de confidențialitate</a> | 
+    <a href="#" style="color:#aaa; text-decoration:underline;">Politica de cookies</a> | 
+    <a href="https://anpc.ro/" target="_blank" style="color:#aaa; text-decoration:underline;">ANPC</a>
+  </p>
+  <p style="margin-top:10px; font-size:12px;">Site web dezvoltat cu pasiune pentru clienții BarberZen 💈</p>
+</footer>
+
+  <footer>© 2025 BarberZen</footer>
+</body>
+</html>
