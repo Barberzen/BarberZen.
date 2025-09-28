@@ -6,6 +6,95 @@
   <title>BarberZen — Programări & Prețuri</title>
   <link rel="icon" type="image/png" href="lk.jpg" />
   <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000; /* fundal negru */
+  color: #fff; /* text alb */
+}
+
+/* Conținutul general să nu fie lipit de margini */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Bara de sus – logo și butoane */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* ca să nu se strângă pe ecran mic */
+}
+
+/* Logo */
+.header img {
+  max-width: 180px;
+  height: auto;
+}
+
+/* Butoane (rezervă, whatsapp, email) */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Cardurile de servicii */
+.services {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* important pt mobil */
+}
+
+.service-card {
+  background: #111;
+  border-radius: 10px;
+  padding: 15px;
+  flex: 1;
+  min-width: 250px; /* pe mobil se face coloană */
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* Contact + locație */
+.contact {
+  margin-top: 20px;
+  padding: 15px;
+  background: #111;
+  border-radius: 10px;
+}
+
+/* Mapă responsive */
+iframe {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* === Media Query pentru telefoane === */
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services {
+    flex-direction: column;
+  }
+
+  .service-card {
+    min-width: 100%;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+}
     body {background:#0b0b0b;color:#fff;font-family:sans-serif;margin:0;padding:0;}
     a {color:#fff;}
     header {padding:40px 20px;text-align:center;}
