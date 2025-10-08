@@ -117,16 +117,34 @@ iframe {
   <header>
     <header class="header-top">
   
-  <!-- Mijloc: Logo + titlu -->
-  <div style="flex:1;text-align:center;">
-    <img src="logo_banner.png" alt="Logo BarberZen"
-     style="max-width: 40%; height: auto; display: block; margin: 0 auto;">
-    <h1 style="margin:0;">Programări BarberZen</h1>
-    <p class="sub" style="margin:5px 0;"> Basic 35 lei • Modern 50 lei • Premium 75 lei • Ultimate 100 lei</p>
-    <div class="cta" style="margin-top:10px;">
-      <a class="btn" href="https://calendar.app.google/fvLYcg94AJk9TNjA7" target="_blank">✅ Rezervă acum</a>
-      <a class="btn" href="https://wa.me/40728510009" target="_blank">💬 WhatsApp</a>
-      <a class="btn" href="mailto:BarberZen.oficial@gmail.com">📧 Email</a>
+  <style>
+  .logo-img {
+    max-width: 25%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .logo-img {
+      max-width: 100%;
+    }
+  }
+</style>
+
+<!-- Mijloc: Logo + titlu -->
+<div style="flex:1; text-align:center;">
+  <img src="logo_banner.png" alt="Logo BarberZen" class="logo-img">
+  <h1 style="margin:0;">Programări BarberZen</h1>
+  <p class="sub" style="margin:5px 0;">
+    Basic 35 lei • Modern 50 lei • Premium 75 lei • Ultimate 100 lei
+  </p>
+  <div class="cta" style="margin-top:10px;">
+    <a class="btn" href="https://calendar.app.google/fvLYcg94AJk9TNjA7" target="_blank">✅ Rezervă acum</a>
+    <a class="btn" href="https://wa.me/40728510009" target="_blank">💬 WhatsApp</a>
+    <a class="btn" href="mailto:BarberZen.oficial@gmail.com">📧 Email</a>
+  </div>
+</div>
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding:20px;">
   
 
