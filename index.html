@@ -5,187 +5,282 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BarberZen — Programări & Prețuri</title>
   <link rel="icon" type="image/png" href="icon.jpg" />
+  
   <style>
+    /* ========================================
+       RESET & GENERAL
+    ======================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #000; /* fundal negru */
-  color: #fff; /* text alb */
-}
-
-/* Conținutul general să nu fie lipit de margini */
-.container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-/* Bara de sus – logo și butoane */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* ca să nu se strângă pe ecran mic */
-}
-
-/* Logo */
-.header img {
-  max-width: 180px;
-  height: auto;
-}
-
-/* Butoane (rezervă, whatsapp, email) */
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* Cardurile de servicii */
-.services {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  margin-top: 20px;
-  flex-wrap: wrap; /* important pt mobil */
-}
-
-.service-card {
-  background: #111;
-  border-radius: 10px;
-  padding: 15px;
-  flex: 1;
-  min-width: 250px; /* pe mobil se face coloană */
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
-}
-
-/* Contact + locație */
-.contact {
-  margin-top: 20px;
-  padding: 15px;
-  background: #111;
-  border-radius: 10px;
-}
-
-/* Mapă responsive */
-iframe {
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-}
-
-/* === Media Query pentru telefoane === */
-@media screen and (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .services {
-    flex-direction: column;
-  }
-
-  .service-card {
-    min-width: 100%;
-  }
-
-  .buttons {
-    justify-content: center;
-  }
-}
-    body {background:#0b0b0b;color:#fff;font-family:sans-serif;margin:0;padding:0;}
-    a {color:#fff;}
-    header {padding:40px 20px;text-align:center;}
-    header img {max-width:200px;margin-bottom:20px;}
-    h1 {margin:10px 0;font-size:36px;}
-    p.sub {color:#bbb;}
-    .cta {margin-top:20px;}
-    .cta a {display:inline-block;margin:8px;padding:12px 20px;border:1px solid #333;
-            border-radius:30px;text-decoration:none;background:#111;font-weight:bold;}
-    section {padding:40px 20px;}
-    .grid {display:grid;grid-gap:20px;}
-    @media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr);}}
-    .card {background:#111;border:1px solid #222;border-radius:10px;padding:20px;}
-    .card .price {font-size:22px;font-weight:bold;margin-bottom:10px;}
-    footer {text-align:center;color:#888;padding:30px 10px;}
+      font-family: Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #fff;
+      line-height: 1.6;
+    }
+    
+    a { color: #fff; text-decoration: none; }
+    a:hover { opacity: 0.8; }
+    
+    /* ========================================
+       CONTAINER & LAYOUT
+    ======================================== */
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 10px;
+    }
+    
+    /* ========================================
+       HEADER & LOGO
+    ======================================== */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .logo-img {
+      width: 80%;
+      max-width: 900px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    h1 { 
+      font-size: 36px; 
+      margin: 10px 0; 
+      text-align: center;
+    }
+    
+    .sub {
+      color: #bbb;
+      text-align: center;
+      margin: 5px 0;
+    }
+    
+    /* ========================================
+       BUTTONS & CTA
+    ======================================== */
+    .cta, .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .btn, .book-button {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 1px solid #333;
+      border-radius: 30px;
+      background: #111;
+      font-weight: bold;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: block !important; /* FIX pentru butoane lipite */
+      margin: 10px auto;
+      width: fit-content;
+    }
+    
+    .btn:hover, .book-button:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+    
+    /* Social buttons */
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      background: black;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-family: sans-serif;
+      margin: 5px;
+    }
+    
+    /* ========================================
+       GRID & CARDS
+    ======================================== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+    
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    
+    .card li {
+      margin: 8px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 6px;
+      height: 6px;
+      background: #007cba;
+      border-radius: 50%;
+    }
+    
+    /* ========================================
+       CONTACT & MAP
+    ======================================== */
+    .contact {
+      margin-top: 20px;
+      padding: 20px;
+      background: #111;
+      border-radius: 10px;
+    }
+    
+    .contact p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+    
+    /* ========================================
+       FOOTER
+    ======================================== */
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    
+    footer a {
+      color: #aaa;
+      text-decoration: underline;
+    }
+    
+    /* ========================================
+       RESPONSIVE
+    ======================================== */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 { font-size: 28px; }
+      
+      .logo-img { max-width: 100%; }
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <header class="header-top">
-  
-  <style>
-  .logo-img {
-  width: 80%; /* poate 30%, 50%, 80%, etc */
-  max-width: 900px; /* limita maximă */
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-  @media screen and (max-width: 768px) {
-    .logo-img {
-      max-width: 100%;
-    }
-  }
-</style>
-
-<!-- Mijloc: Logo + titlu -->
-<div style="flex:1; text-align:center;">
-  <img src="benner.jpg" alt="Logo BarberZen" class="logo-img">
-  <h1 style="margin:0;">Programări BarberZen</h1>
-  <p class="sub" style="margin:5px 0;">
-    Basic 35 lei • Modern 50 lei • Premium 75 lei • Ultimate 100 lei
-  </p>
-  <div class="cta" style="margin-top:10px;">
-    <a class="btn" href="https://tidycal.com/barberzenoficial" target="_blank">✅ Rezervă acum</a>
-    <a class="btn" href="https://wa.me/40728510009" target="_blank">💬 WhatsApp</a>
-    <a class="btn" href="mailto:BarberZen.oficial@gmail.com">📧 Email</a>
-  </div>
-</div>
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding:20px;">
-  
-
-  <!-- Stânga: Social media -->
-  <div style="flex:1;text-align:center;">
-    <h3 style="margin:0 0 10px;">Urmărește BarberZen</h3>
-    <a href="https://www.facebook.com/share/19dk3HcFDM/?mibextid=wwXIfr" target="_blank"
-       style="display: inline-flex; align-items: center; background-color: black; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; font-family: sans-serif; margin-top: 10px;">👍 Facebook</a><br>
-    <a href="https://www.tiktok.com/@barberzen?_t=ZN-900AVIXGgDu&_r=1" target="_blank"
-       style="display: inline-flex; align-items: center; background-color: black; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; font-family: sans-serif; margin-top: 10px;">🎵 TikTok</a>
-       <a href="https://www.instagram.com/barberzen.oficial?igsh=ZHFwaDhrMmVpdWM4" target="_blank" 
-        style="display: inline-flex; align-items: center; background-color: black; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; font-family: sans-serif; margin-top: 10px;">📸 Instagram</a>
-  
-  </div>
- <div style="text-align:center; margin-top:10px; font-size:15px; color:#ccc; font-style:italic;">
-  ✂️ Tunsul se realizează exclusiv pe bază de programare.<br>
-  📅 Programările se efectuează în secțiunea de mai sus.
-</div>
-
-</div>
-
-
-</header>
-
+  <!-- HEADER -->
+  <header class="header">
+    <!-- Logo Central -->
+    <div style="flex:1; text-align:center;">
+      <img src="benner.jpg" alt="Logo BarberZen" class="logo-img">
+      <h1>Programări BarberZen</h1>
+      <p class="sub">
+        Basic 35 lei • Modern 50 lei • Premium 75 lei • Ultimate 100 lei
+      </p>
+      <div class="cta">
+        <a class="btn" href="https://tidycal.com/barberzenoficial" target="_blank">✅ Rezervă acum</a>
+        <a class="btn" href="https://wa.me/40728510009" target="_blank">💬 WhatsApp</a>
+        <a class="btn" href="mailto:BarberZen.oficial@gmail.com">📧 Email</a>
+      </div>
+    </div>
   </header>
-  <main>
+
+  <!-- SOCIAL -->
+  <div class="container">
+    <div style="text-align:center; margin:20px 0;">
+      <h3>Urmărește BarberZen</h3>
+      <a href="https://www.facebook.com/share/19dk3HcFDM/?mibextid=wwXIfr" 
+         class="social-btn" target="_blank">👍 Facebook</a>
+      <a href="https://www.tiktok.com/@barberzen?_t=ZN-900AVIXGgDu&_r=1" 
+         class="social-btn" target="_blank">🎵 TikTok</a>
+      <a href="https://www.instagram.com/barberzen.oficial?igsh=ZHFwaDhrMmVpdWM4" 
+         class="social-btn" target="_blank">📸 Instagram</a>
+    </div>
+    
+    <div style="text-align:center; margin-bottom:30px; font-size:15px; color:#ccc; font-style:italic;">
+      ✂️ Tunsul se realizează exclusiv pe bază de programare.<br>
+      📅 Programările se efectuează în secțiunea de mai sus.
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
     <section>
-      <h2>Lista de servicii</h2>
+      <h2 style="text-align:center; margin-bottom:30px;">Lista de servicii</h2>
       <div class="grid">
+        <!-- BASIC LIVIU -->
         <div class="card">
           <div class="price">Basic — 35 lei</div>
           <ul>
             <li>✂️ Tuns clasic</li>
           </ul>
-                 <a href="https://tidycal.com/barberzenoficial/20" 
-     target="_blank" 
-     class="book-button">
-     Rezervă acum
-  </a>
+          <a href="https://tidycal.com/barberzenoficial/20" 
+             target="_blank" class="book-button">
+            Rezerva la Liviu
+          </a>
+          <a href="https://tidycal.com/barberzenoficial/allan-basic-35-lei" 
+             target="_blank" class="book-button">
+            Rezerva la Allan
+          </a>
+          <a href="https://tidycal.com/barberzenoficial/darius-basic-35-lei" 
+          target="_blank" class="book-button">
+        Rezerva la Darius
+       </a>
         </div>
+
+        <!-- MODERN (FIXAT CU 2 BUTOANE) -->
         <div class="card">
           <div class="price">Modern — 50 lei</div>
           <ul>
@@ -193,11 +288,20 @@ iframe {
             <li>💨 Styling rapid</li>
           </ul>
           <a href="https://tidycal.com/barberzenoficial/30" 
-     target="_blank" 
-     class="book-button">
-     Rezervă acum
-  </a>
+             target="_blank" class="book-button">
+            Rezerva la Liviu
+          </a>
+          <a href="https://tidycal.com/barberzenoficial/allan-modern-50-lei" 
+             target="_blank" class="book-button">
+            Rezerva la Allan
+          </a>
+          <a href="https://tidycal.com/barberzenoficial/darius-modern-50-lei" 
+          target="_blank" class="book-button">
+        Rezerva la Darius
+       </a>
         </div>
+
+        <!-- PREMIUM -->
         <div class="card">
           <div class="price">Premium — 75 lei</div>
           <ul>
@@ -207,11 +311,20 @@ iframe {
             <li>💨 Styling & aranjat</li>
           </ul>
           <a href="https://tidycal.com/barberzenoficial/40" 
-     target="_blank" 
-     class="book-button">
-     Rezervă acum
-  </a>
+             target="_blank" class="book-button">
+            Rezerva la Liviu
+          </a>
+          <a href="https://tidycal.com/barberzenoficial/allan-premium-75-lei" 
+             target="_blank" class="book-button">
+            Rezerva la Allan
+          </a>
+          <a href="https://tidycal.com/barberzenoficial/darius-premium-75-lei" 
+          target="_blank" class="book-button">
+        Rezerva la Darius
+       </a>
         </div>
+
+        <!-- ULTIMATE -->
         <div class="card">
           <div class="price">Ultimate — 100 lei</div>
           <ul>
@@ -219,14 +332,23 @@ iframe {
             <li>🧴 Spălat profesional</li>
             <li>💆 Masaj capilar relaxant</li>
             <li>💨 Styling & aranjat final</li>
-            <li>🧔  Îngrijire completă a bărbii (contur, aranjat, finisaj)</li>
+            <li>🧔 Îngrijire completă a bărbii</li>
           </ul>
           <a href="https://tidycal.com/barberzenoficial/50" 
-     target="_blank" 
-     class="book-button">
-     Rezervă acum
-  </a>
+             target="_blank" class="book-button">
+            Rezerva la Liviu
+          </a>
+          <a href="https://tidycal.com/barberzenoficial/allan-ultimate-100-lei" 
+             target="_blank" class="book-button">
+            Rezerva la Allan
+          </a>
+          <a href="https://tidycal.com/barberzenoficial/darius-ultimate-100-lei" 
+          target="_blank" class="book-button">
+        Rezerva la Darius
+       </a>
         </div>
+
+        <!-- SERVICII INDIVIDUALE -->
         <div class="card">
           <div class="price">Servicii individuale</div>
           <ul>
@@ -235,38 +357,36 @@ iframe {
             <li>💨 Styling & aranjat - 20 lei</li>
             <li>🧴 Spălat profesional - 10 lei</li>
             <li>💆 Masaj capilar relaxant - 15 lei</li>
-            
           </ul>
         </div>
       </div>
     </section>
-    <section>
-      <h2>Contact & locație</h2>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <h2 style="margin-bottom:20px;">Contact & Locație</h2>
       <p>
-        📞0728 510 009</a><br/>
-        <a href="mailto:BarberZen.oficial@gmail.com"> BarberZen.oficial@gmail.com</a><br/>
-        <a href="https://www.facebook.com/share/19dk3HcFDM/?mibextid=wwXIfr" target="_blank">👍 Facebook</a><br/>
-        <a href="https://www.tiktok.com/@barberzen?_t=ZN-900AVIXGgDu&_r=1" target="_blank"
-              border-radius:6px;text-decoration:none;font-size:14px;">🎵 TikTok</a><br/>
-              <a href="https://www.instagram.com/barberzen.oficial?igsh=ZHFwaDhrMmVpdWM4"> 📸Instagram</a><br/>
-        <a href="https://maps.app.goo.gl/CHY3ZP2wNWtMAAyr8?g_st=ipc" target="_blank">📍 Strada Silvia nr. 9, București</a>
+        📞 <a href="tel:0728510009">0728 510 009</a><br/>
+        📧 <a href="mailto:BarberZen.oficial@gmail.com">BarberZen.oficial@gmail.com</a><br/>
+        📍 <a href="https://maps.app.goo.gl/CHY3ZP2wNWtMAAyr8?g_st=ipc" target="_blank">Strada Silvia nr. 9, București</a><br/>
+        👍 <a href="https://www.facebook.com/share/19dk3HcFDM/?mibextid=wwXIfr" target="_blank">Facebook</a><br/>
+        🎵 <a href="https://www.tiktok.com/@barberzen?_t=ZN-900AVIXGgDu&_r=1" target="_blank">TikTok</a><br/>
+        📸 <a href="https://www.instagram.com/barberzen.oficial?igsh=ZHFwaDhrMmVpdWM4" target="_blank">Instagram</a>
       </p>
-      <iframe src="https://www.google.com/maps?q=Strada%20Silvia%209%2C%20Bucure%C8%99ti&output=embed"
-              style="width:100%;height:300px;border:0;border-radius:10px;" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps?q=Strada%20Silvia%209%2C%20Bucure%C8%99ti&output=embed" loading="lazy"></iframe>
     </section>
-    
+  </main>
 
-  </main><footer style="background:#111; color:#aaa; text-align:center; padding:20px; margin-top:40px; font-size:14px;">
-  <p>📞 Telefon: 0728 510 009 | 📧 Email: <a href="mailto:BarberZen.oficial@gmail.com" style="color:#aaa; text-decoration:underline;">BarberZen.oficial@gmail.com</a>
-  <p>© BarberZen București — RO 52845130 </p>
-  <p>
-    <a href="#" style="color:#aaa; text-decoration:underline;">Politica de confidențialitate</a> | 
-    <a href="#" style="color:#aaa; text-decoration:underline;">Politica de cookies</a> | 
-    <a href="https://anpc.ro/" target="_blank" style="color:#aaa; text-decoration:underline;">ANPC</a>
-  </p>
-  <p style="margin-top:10px; font-size:12px;">Site web dezvoltat cu pasiune pentru clienții BarberZen 💈</p>
-</footer>
-
-  <footer>© 2025 BarberZen</footer>
+  <!-- FOOTER -->
+  <footer>
+    <p>📞 Telefon: 0728 510 009 | 📧 Email: <a href="mailto:BarberZen.oficial@gmail.com">BarberZen.oficial@gmail.com</a></p>
+    <p>© BarberZen București — RO 52845130</p>
+    <p>
+      <a href="#">Politica de confidențialitate</a> | 
+      <a href="#">Politica de cookies</a> | 
+      <a href="https://anpc.ro/" target="_blank">ANPC</a>
+    </p>
+    <p style="font-size:12px;">Site web dezvoltat cu pasiune pentru clienții BarberZen 💈</p>
+  </footer>
 </body>
 </html>
